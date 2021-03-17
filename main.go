@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	"os"
 
 	"github.com/gin-gonic/contrib/static"
 	"github.com/gin-gonic/gin"
@@ -25,7 +26,11 @@ func main() {
 	g.GET("/series/:page", SerieslistPageHandler)
 	g.GET("/series/:page/:id", SeriesPageHandler)
 	// Run
-	if err := g.Run(":25025"); err != nil {
+	addr := ":25025"
+	if os.Getenv("PORT") != "" {
+		addr = ":" + os.Getenv("PORT")
+	}
+	if err := g.Run(addr); err != nil {
 		log.Panicln(err)
 	}
 }
