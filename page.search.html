@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alpaca.tv</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-black text-white">
+    <!-- Navbar -->
+    {{ template "navbar" }}
+    <!-- Searchbar -->
+    <div class="mt-12">
+        <form action="/search" method="get">
+            <div class="m-auto w-full max-w-screen-sm shadow-sm bg-gray-800 rounded-md relative">
+                <input type="text" name="q" placeholder="Поиск ..." class="w-full h-full outline-none py-3 px-3 bg-transparent">
+                <button class="w-8 h-8 p-1 absolute right-2 top-2 text-gray-400 shadow-sm rounded-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+            </div>
+            <input type="submit" style="display: none" />
+        </form>
+    </div>
+    <div class="mt-16 max-w-screen-xl mx-auto">
+        <!-- Films search results -->
+        {{ if .Films.Cards }}
+        <div class="mt-4">
+            {{ template "block.cards" .Films }}
+        </div>
+        {{ end }}
+        <!-- Series search results -->
+        {{ if .Series.Cards }}
+        <div class="mt-4">
+            {{ template "block.cards" .Series }}
+        </div>
+        {{ end }}
+    </div>
+</body>
+</html>

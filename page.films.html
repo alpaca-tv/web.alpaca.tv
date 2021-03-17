@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alpaca.tv</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-black text-white">
+    <!-- Navbar -->
+    {{ template "navbar" }}
+    <!-- Container -->
+    <div class="max-w-screen-xl m-auto">
+        <!-- Title -->
+        <div class="mt-4 text-4xl font-semibold">Фильмы</div>
+        <!-- Ordering selector -->
+        <div class="mt-4 flex">
+            <a class="mr-4 py-1 px-2 {{ if eq .Order `watching` }} border border-white rounded-full {{ end }}" href="/films/1?o=watching">Популярное</a>
+            <a class="mr-4 py-1 px-2 {{ if eq .Order `last` }} border border-white rounded-full {{ end }}" href="/films/1?o=last">Последние</a>
+            <a class="mr-4 py-1 px-2 {{ if eq .Order `popular` }} border border-white rounded-full {{ end }}" href="/films/1?o=popular">Топ</a>
+        </div>
+        <!-- List -->
+        <div class="mt-4">
+            {{ template "block.cards" .Films }}
+        </div>
+        <!-- Pagination -->
+        <div class="mb-16 flex justify-center">
+            {{ if gt .PrevPage 0 }}
+            <a href="/films/{{ .PrevPage }}">
+                <span><svg class="w-6 h-6 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg></span>
+                <span>назад</span>
+            </a>
+            {{ end }}
+            <a href="/films/{{ .NextPage }}" class="pl-8">
+                <span>вперёд</span>
+                <span><svg class="w-6 h-6 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></span>
+            </a>
+        </div>
+    </div>
+    <!-- Footer -->
+    {{ template "footer" }}
+</body>
+</html>
