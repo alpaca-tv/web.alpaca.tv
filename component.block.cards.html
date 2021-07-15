@@ -1,11 +1,11 @@
 {{ define "block.cards" }}
 <div>
     {{ if ne .Title "" }}
-    <div class="mb-4 text-4xl font-semibold">
+    <div class="mb-4 text-2xl md:text-4xl font-semibold">
       {{ if ne .TitleLink "" }}
-        <a href="{{ .TitleLink }}">
+        <a href="{{ .TitleLink }}" class="flex items-center">
           <span>{{ .Title }}</span>
-          <span><svg class="w-6 h-6 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></span>
+          <span><svg class="ml-1 w-5 h-5 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></span>
         </a>
       {{ else }}
         <span>{{ .Title }}</span>
@@ -16,12 +16,12 @@
     <div class="text-center text-sm">{{ .EmptyText }}</div>
     {{ end }}
     <div 
-      class="block-entries styled-scrollbar flex {{ if eq $.Wrap false }} flex-no-wrap overflow-x-scroll scrollbar {{ else }} flex-wrap {{ end }} pt-2 pb-8 pl-4 -ml-4"
+      class="block-entries styled-scrollbar gap-4 {{ if eq $.Wrap false }} flex overflow-x-scroll scrollbar {{ else }} grid grid-cols-2 md:grid-cols-6 {{ end }} pt-2 pb-8"
       style="scroll-behavior: smooth; scroll-snap-type: x mandatory;"
     >
       {{ range .Cards }}
       <div 
-        class="block-entry mr-4 {{ if eq $.Wrap false }} w-card {{ else }} mb-5 {{ end }}"
+        class="block-entry {{ if eq $.Wrap false }} w-card {{ end }}"
         style="scroll-snap-align: center;"
       >
         {{ template "card" . }}

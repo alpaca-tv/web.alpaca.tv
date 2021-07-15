@@ -1,0 +1,9 @@
+{{ define "selector.source.film" }}
+<form action="" method="GET">
+    <select name="source" id="source" class="bg-transparent w-full" onchange="this.form.submit()">
+        {{ range $i, $source := .Sources }}
+            <option value="{{ $i }}" {{ if eq $i $.Selected }} selected {{ end }}>{{ $source.Voicecover }} {{ $source.Quality }}</option>
+        {{ end }}
+    </select>
+</form>
+{{ end }}

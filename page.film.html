@@ -4,11 +4,67 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alpaca.tv</title>
+    <title>{{ .Film.Name }} - Alpaca.tv</title>
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-black text-white">
     <!-- Navbar -->
     {{ template "navbar" }}
+    <!-- 2 columns layout -->
+    <div class="mt-8 px-4 md:px-0 max-w-screen-lg mx-auto flex flex-wrap">
+        <div class="w-full md:w-1/3">
+            <!-- Cover -->
+            <img src="{{ .Film.PosterURL }}" alt="cover" class="w-5/6 md:w-full mx-auto rounded">
+            <!-- Controls -->
+            <div class="mt-8 md:mt-4 w-5/6 mx-auto md:w-full">
+                <a href="/films/f/{{ .Film.ID }}/view" class="w-full flex items-center justify-center py-2 font-semibold rounded bg-white text-black transition">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <span class="pl-1">Смотреть</span>
+                </a>
+            </div>
+        </div>
+        <div class="w-full md:w-2/3 md:pl-8 mt-6 md:mt-0">
+            <!-- Title -->
+            <div class="text-center md:text-left text-4xl font-black">{{ .Film.Name }}</div>
+            <!-- Info -->
+            <div class="mt-12 md:mt-4 text-2xl font-bold">О фильме</div>
+            <table class="mt-2">
+                <tbody>
+                    <tr>
+                        <td>Рейтинг</td>
+                        <td class="pl-12">{{ .Film.Rating }}</td>
+                    </tr>
+                    <tr>
+                        <td>Год</td>
+                        <td class="pl-12">{{ .Film.Year }}</td>
+                    </tr>
+                    <tr>
+                        <td>Страна</td>
+                        <td class="pl-12">{{ .Film.Country }}</td>
+                    </tr>
+                    <tr>
+                        <td>Жанры</td>
+                        <td class="pl-12">...</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- Description -->
+            <div class="mt-4 text-2xl font-bold">Описание</div>
+            <div>
+                {{ .Film.Description }} 
+            </div>
+            <!-- Related films -->
+            {{ if .Film.Related }}
+                <div class="mt-4 text-2xl font-bold">Связанные фильмы</div>
+                <div class="mt-2">
+                    {{ range .Film.Related }}
+                        <div>
+                            <a href="/films/f/{{ .ID }}">{{ .Name }} ({{ .Year }}) {{ .Rating }}</a>
+                        </div>
+                    {{ end }}
+                </div>
+            {{ end }}
+        </div>
+    </div>
 </body>
 </html>

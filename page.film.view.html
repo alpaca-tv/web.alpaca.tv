@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Film.Name }} - Alpaca.tv</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-black text-white">
+    <!-- Base -->
+    <div class="h-screen w-full flex items-center">
+        <video class="w-full h-full" src="{{ (index .Film.Sources .SourceSelector.Selected ).URL }}" controls></video>
+    </div>
+    <!-- Overlay -->
+    <div class="absolute top-0 left-0 right-0 py-4 px-6 bg-black bg-opacity-25 overflow-hidden flex items-center justify-between">
+        <div class="flex items-center">
+            <a href="/films/f/{{ .Film.ID }}" class="mt-1 hover:text-gray-400">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            </a>
+            <h1 class="hidden md:block ml-3 text-4xl font-black">{{ .Film.Name }}</h1>
+        </div>
+        <div class="flex items-center">
+            <div class="hidden md:block mt-1 mr-4">
+                {{ template "selector.source.film" .SourceSelector }}
+            </div>
+            <div class="flex items-center">
+                <button class="mt-1 hover:text-gray-400">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"></path></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -11,12 +11,16 @@
     <!-- Navbar -->
     {{ template "navbar" }}
     <!-- Cover -->
-    <div class="cover">
-
-    </div>
+    <div class="cover"></div>
     <!-- Searchbar -->
-    <div class="mt-24">
-        <form action="/search" method="get">
+    <div class="-mt-28 md:mt-18 px-4 md:px-0">
+        <div class="flex items-center justify-center">
+            <a href="#" class="flex items-center justify-center">
+                <img class="h-16" src="/static/img/logo.svg" alt="logo">
+                <span class="ml-2 pt-2 pr-6 font-semibold text-4xl tracking-tight">Alpaca.tv</span>
+            </a>
+        </div>
+        <form class="mt-4" action="/search" method="get">
             <div class="m-auto w-full max-w-screen-sm shadow-sm bg-gray-800 rounded-md relative">
                 <input type="text" name="q" placeholder="Поиск ..." class="w-full h-full outline-none py-3 px-3 bg-transparent">
                 <button class="w-8 h-8 p-1 absolute right-2 top-2 text-gray-400 shadow-sm rounded-full">
@@ -29,7 +33,7 @@
         </form>
     </div>
     <!-- Now Watching -->
-    <div class="mt-64 mb-16 max-w-screen-xl mx-auto">
+    <div class="mt-20 md:mt-44 px-4 md:px-0 mb-16 max-w-screen-xl mx-auto">
         <div class="mt-4">
             {{ template "block.cards" .NWFilms }}
         </div>

@@ -4,6 +4,8 @@ github.com/alpaca-tv/alpclib v0.0.0-20210228064547-2f2955bfa7b3 h1:NLaLcfgeustCY
 github.com/alpaca-tv/alpclib v0.0.0-20210228064547-2f2955bfa7b3/go.mod h1:3bTwBdj9iiEPd/piqkp7JaYnlgoLRg6xo/R4Hqvvqo0=
 github.com/alpaca-tv/alpclib v0.0.0-20210307164415-a7d553a0e71e h1:MULRssTSd8OdjAQq4FMAeJp6WRcgICDwVblopOn7yI8=
 github.com/alpaca-tv/alpclib v0.0.0-20210307164415-a7d553a0e71e/go.mod h1:3bTwBdj9iiEPd/piqkp7JaYnlgoLRg6xo/R4Hqvvqo0=
+github.com/alpaca-tv/alpclib v0.0.0-20210715112339-521499c2a667 h1:vgSsfjX23Ve1X/KxNUkZkVZP9tByfx1MJFi0Q+Y/Apk=
+github.com/alpaca-tv/alpclib v0.0.0-20210715112339-521499c2a667/go.mod h1:3bTwBdj9iiEPd/piqkp7JaYnlgoLRg6xo/R4Hqvvqo0=
 github.com/andybalholm/cascadia v1.1.0/go.mod h1:GsXiBklL0woXo1j/WYWtSYYC4ouU9PqHO0sqidkEA4Y=
 github.com/andybalholm/cascadia v1.2.0 h1:vuRCkM5Ozh/BfmsaTm26kbjm0mIOM3yS5Ek/F5h18aE=
 github.com/andybalholm/cascadia v1.2.0/go.mod h1:YCyR8vOZT9aZ1CHEd8ap0gMVm2aFgxBp0T0eFw1RUQY=

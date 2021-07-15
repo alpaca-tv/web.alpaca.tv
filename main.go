@@ -23,6 +23,7 @@ func main() {
 	g.GET("/search", SearchPageHandler)
 	g.GET("/films/:page", FilmsPageHandler)
 	g.GET("/films/:page/:id", FilmPageHandler)
+	g.GET("/films/:page/:id/view", FilmViewPageHandler)
 	g.GET("/series/:page", SerieslistPageHandler)
 	g.GET("/series/:page/:id", SeriesPageHandler)
 	// Run
